@@ -1,5 +1,15 @@
+variable "vpc_cidr_block" "main" {
+    description = "cidr block for vpc"
+    type = string
+    default = "10.0.0.0/24"
+  
+}
+
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "main"
+  }
 }
 
 resource "aws_internet_gateway" "gw" {
